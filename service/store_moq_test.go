@@ -12,19 +12,19 @@ import (
 
 // BeginnerMock is a mock implementation of store.Beginner.
 //
-// 	func TestSomethingThatUsesBeginner(t *testing.T) {
+//	func TestSomethingThatUsesBeginner(t *testing.T) {
 //
-// 		// make and configure a mocked store.Beginner
-// 		mockedBeginner := &BeginnerMock{
-// 			BeginTxFunc: func(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error) {
-// 				panic("mock out the BeginTx method")
-// 			},
-// 		}
+//		// make and configure a mocked store.Beginner
+//		mockedBeginner := &BeginnerMock{
+//			BeginTxFunc: func(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error) {
+//				panic("mock out the BeginTx method")
+//			},
+//		}
 //
-// 		// use mockedBeginner in code that requires store.Beginner
-// 		// and then make assertions.
+//		// use mockedBeginner in code that requires store.Beginner
+//		// and then make assertions.
 //
-// 	}
+//	}
 type BeginnerMock struct {
 	// BeginTxFunc mocks the BeginTx method.
 	BeginTxFunc func(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error)
@@ -62,7 +62,8 @@ func (mock *BeginnerMock) BeginTx(ctx context.Context, opts *sql.TxOptions) (*sq
 
 // BeginTxCalls gets all the calls that were made to BeginTx.
 // Check the length with:
-//     len(mockedBeginner.BeginTxCalls())
+//
+//	len(mockedBeginner.BeginTxCalls())
 func (mock *BeginnerMock) BeginTxCalls() []struct {
 	Ctx  context.Context
 	Opts *sql.TxOptions
@@ -79,19 +80,19 @@ func (mock *BeginnerMock) BeginTxCalls() []struct {
 
 // PreparerMock is a mock implementation of store.Preparer.
 //
-// 	func TestSomethingThatUsesPreparer(t *testing.T) {
+//	func TestSomethingThatUsesPreparer(t *testing.T) {
 //
-// 		// make and configure a mocked store.Preparer
-// 		mockedPreparer := &PreparerMock{
-// 			PreparexContextFunc: func(ctx context.Context, query string) (*sqlx.Stmt, error) {
-// 				panic("mock out the PreparexContext method")
-// 			},
-// 		}
+//		// make and configure a mocked store.Preparer
+//		mockedPreparer := &PreparerMock{
+//			PreparexContextFunc: func(ctx context.Context, query string) (*sqlx.Stmt, error) {
+//				panic("mock out the PreparexContext method")
+//			},
+//		}
 //
-// 		// use mockedPreparer in code that requires store.Preparer
-// 		// and then make assertions.
+//		// use mockedPreparer in code that requires store.Preparer
+//		// and then make assertions.
 //
-// 	}
+//	}
 type PreparerMock struct {
 	// PreparexContextFunc mocks the PreparexContext method.
 	PreparexContextFunc func(ctx context.Context, query string) (*sqlx.Stmt, error)
@@ -129,7 +130,8 @@ func (mock *PreparerMock) PreparexContext(ctx context.Context, query string) (*s
 
 // PreparexContextCalls gets all the calls that were made to PreparexContext.
 // Check the length with:
-//     len(mockedPreparer.PreparexContextCalls())
+//
+//	len(mockedPreparer.PreparexContextCalls())
 func (mock *PreparerMock) PreparexContextCalls() []struct {
 	Ctx   context.Context
 	Query string
@@ -146,22 +148,22 @@ func (mock *PreparerMock) PreparexContextCalls() []struct {
 
 // ExecerMock is a mock implementation of store.Execer.
 //
-// 	func TestSomethingThatUsesExecer(t *testing.T) {
+//	func TestSomethingThatUsesExecer(t *testing.T) {
 //
-// 		// make and configure a mocked store.Execer
-// 		mockedExecer := &ExecerMock{
-// 			ExecContextFunc: func(ctx context.Context, query string, args ...any) (sql.Result, error) {
-// 				panic("mock out the ExecContext method")
-// 			},
-// 			NamedExecContextFunc: func(ctx context.Context, query string, arg interface{}) (sql.Result, error) {
-// 				panic("mock out the NamedExecContext method")
-// 			},
-// 		}
+//		// make and configure a mocked store.Execer
+//		mockedExecer := &ExecerMock{
+//			ExecContextFunc: func(ctx context.Context, query string, args ...any) (sql.Result, error) {
+//				panic("mock out the ExecContext method")
+//			},
+//			NamedExecContextFunc: func(ctx context.Context, query string, arg interface{}) (sql.Result, error) {
+//				panic("mock out the NamedExecContext method")
+//			},
+//		}
 //
-// 		// use mockedExecer in code that requires store.Execer
-// 		// and then make assertions.
+//		// use mockedExecer in code that requires store.Execer
+//		// and then make assertions.
 //
-// 	}
+//	}
 type ExecerMock struct {
 	// ExecContextFunc mocks the ExecContext method.
 	ExecContextFunc func(ctx context.Context, query string, args ...any) (sql.Result, error)
@@ -216,7 +218,8 @@ func (mock *ExecerMock) ExecContext(ctx context.Context, query string, args ...a
 
 // ExecContextCalls gets all the calls that were made to ExecContext.
 // Check the length with:
-//     len(mockedExecer.ExecContextCalls())
+//
+//	len(mockedExecer.ExecContextCalls())
 func (mock *ExecerMock) ExecContextCalls() []struct {
 	Ctx   context.Context
 	Query string
@@ -255,7 +258,8 @@ func (mock *ExecerMock) NamedExecContext(ctx context.Context, query string, arg 
 
 // NamedExecContextCalls gets all the calls that were made to NamedExecContext.
 // Check the length with:
-//     len(mockedExecer.NamedExecContextCalls())
+//
+//	len(mockedExecer.NamedExecContextCalls())
 func (mock *ExecerMock) NamedExecContextCalls() []struct {
 	Ctx   context.Context
 	Query string
@@ -274,31 +278,31 @@ func (mock *ExecerMock) NamedExecContextCalls() []struct {
 
 // QueryerMock is a mock implementation of store.Queryer.
 //
-// 	func TestSomethingThatUsesQueryer(t *testing.T) {
+//	func TestSomethingThatUsesQueryer(t *testing.T) {
 //
-// 		// make and configure a mocked store.Queryer
-// 		mockedQueryer := &QueryerMock{
-// 			GetContextFunc: func(ctx context.Context, dest interface{}, query string, args ...any) error {
-// 				panic("mock out the GetContext method")
-// 			},
-// 			PreparexContextFunc: func(ctx context.Context, query string) (*sqlx.Stmt, error) {
-// 				panic("mock out the PreparexContext method")
-// 			},
-// 			QueryRowxContextFunc: func(ctx context.Context, query string, args ...any) *sqlx.Row {
-// 				panic("mock out the QueryRowxContext method")
-// 			},
-// 			QueryxContextFunc: func(ctx context.Context, query string, args ...any) (*sqlx.Rows, error) {
-// 				panic("mock out the QueryxContext method")
-// 			},
-// 			SelectContextFunc: func(ctx context.Context, dest interface{}, query string, args ...any) error {
-// 				panic("mock out the SelectContext method")
-// 			},
-// 		}
+//		// make and configure a mocked store.Queryer
+//		mockedQueryer := &QueryerMock{
+//			GetContextFunc: func(ctx context.Context, dest interface{}, query string, args ...any) error {
+//				panic("mock out the GetContext method")
+//			},
+//			PreparexContextFunc: func(ctx context.Context, query string) (*sqlx.Stmt, error) {
+//				panic("mock out the PreparexContext method")
+//			},
+//			QueryRowxContextFunc: func(ctx context.Context, query string, args ...any) *sqlx.Row {
+//				panic("mock out the QueryRowxContext method")
+//			},
+//			QueryxContextFunc: func(ctx context.Context, query string, args ...any) (*sqlx.Rows, error) {
+//				panic("mock out the QueryxContext method")
+//			},
+//			SelectContextFunc: func(ctx context.Context, dest interface{}, query string, args ...any) error {
+//				panic("mock out the SelectContext method")
+//			},
+//		}
 //
-// 		// use mockedQueryer in code that requires store.Queryer
-// 		// and then make assertions.
+//		// use mockedQueryer in code that requires store.Queryer
+//		// and then make assertions.
 //
-// 	}
+//	}
 type QueryerMock struct {
 	// GetContextFunc mocks the GetContext method.
 	GetContextFunc func(ctx context.Context, dest interface{}, query string, args ...any) error
@@ -396,7 +400,8 @@ func (mock *QueryerMock) GetContext(ctx context.Context, dest interface{}, query
 
 // GetContextCalls gets all the calls that were made to GetContext.
 // Check the length with:
-//     len(mockedQueryer.GetContextCalls())
+//
+//	len(mockedQueryer.GetContextCalls())
 func (mock *QueryerMock) GetContextCalls() []struct {
 	Ctx   context.Context
 	Dest  interface{}
@@ -435,7 +440,8 @@ func (mock *QueryerMock) PreparexContext(ctx context.Context, query string) (*sq
 
 // PreparexContextCalls gets all the calls that were made to PreparexContext.
 // Check the length with:
-//     len(mockedQueryer.PreparexContextCalls())
+//
+//	len(mockedQueryer.PreparexContextCalls())
 func (mock *QueryerMock) PreparexContextCalls() []struct {
 	Ctx   context.Context
 	Query string
@@ -472,7 +478,8 @@ func (mock *QueryerMock) QueryRowxContext(ctx context.Context, query string, arg
 
 // QueryRowxContextCalls gets all the calls that were made to QueryRowxContext.
 // Check the length with:
-//     len(mockedQueryer.QueryRowxContextCalls())
+//
+//	len(mockedQueryer.QueryRowxContextCalls())
 func (mock *QueryerMock) QueryRowxContextCalls() []struct {
 	Ctx   context.Context
 	Query string
@@ -511,7 +518,8 @@ func (mock *QueryerMock) QueryxContext(ctx context.Context, query string, args .
 
 // QueryxContextCalls gets all the calls that were made to QueryxContext.
 // Check the length with:
-//     len(mockedQueryer.QueryxContextCalls())
+//
+//	len(mockedQueryer.QueryxContextCalls())
 func (mock *QueryerMock) QueryxContextCalls() []struct {
 	Ctx   context.Context
 	Query string
@@ -552,7 +560,8 @@ func (mock *QueryerMock) SelectContext(ctx context.Context, dest interface{}, qu
 
 // SelectContextCalls gets all the calls that were made to SelectContext.
 // Check the length with:
-//     len(mockedQueryer.SelectContextCalls())
+//
+//	len(mockedQueryer.SelectContextCalls())
 func (mock *QueryerMock) SelectContextCalls() []struct {
 	Ctx   context.Context
 	Dest  interface{}

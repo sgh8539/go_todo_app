@@ -1,0 +1,4 @@
+curl -X POST localhost:18000/register -d '{"name": "budou", "password":"test", "role":"admin"}'
+# curl -i -X POST -H "Authorization: Bearer $(curl -XPOST localhost:18000/login -d '{"user_name": "budou", "password":"test"}' | jq ".access_token" | sed "s/\"//g")" localhost:18000/tasks -d @./handler/testdata/add_task/ok_req.json.golden
+# curl -X POST -H "Authorization: Bearer $(curl -XPOST localhost:18000/login -d '{"user_name": "budou", "password":"test"}' | jq ".access_token" | sed "s/\"//g")" localhost:18000/tasks -d @./handler/testdata/add_task/ok_req.json.golden
+# curl -X GET -H "Authorization: Bearer $(curl -XPOST localhost:18000/login -d '{"user_name": "budou", "password":"test"}' | jq ".access_token" | sed "s/\"//g")" localhost:18000/tasks | jq

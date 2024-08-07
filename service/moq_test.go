@@ -16,19 +16,19 @@ var _ TaskAdder = &TaskAdderMock{}
 
 // TaskAdderMock is a mock implementation of TaskAdder.
 //
-// 	func TestSomethingThatUsesTaskAdder(t *testing.T) {
+//	func TestSomethingThatUsesTaskAdder(t *testing.T) {
 //
-// 		// make and configure a mocked TaskAdder
-// 		mockedTaskAdder := &TaskAdderMock{
-// 			AddTaskFunc: func(ctx context.Context, db store.Execer, t *entity.Task) error {
-// 				panic("mock out the AddTask method")
-// 			},
-// 		}
+//		// make and configure a mocked TaskAdder
+//		mockedTaskAdder := &TaskAdderMock{
+//			AddTaskFunc: func(ctx context.Context, db store.Execer, t *entity.Task) error {
+//				panic("mock out the AddTask method")
+//			},
+//		}
 //
-// 		// use mockedTaskAdder in code that requires TaskAdder
-// 		// and then make assertions.
+//		// use mockedTaskAdder in code that requires TaskAdder
+//		// and then make assertions.
 //
-// 	}
+//	}
 type TaskAdderMock struct {
 	// AddTaskFunc mocks the AddTask method.
 	AddTaskFunc func(ctx context.Context, db store.Execer, t *entity.Task) error
@@ -70,7 +70,8 @@ func (mock *TaskAdderMock) AddTask(ctx context.Context, db store.Execer, t *enti
 
 // AddTaskCalls gets all the calls that were made to AddTask.
 // Check the length with:
-//     len(mockedTaskAdder.AddTaskCalls())
+//
+//	len(mockedTaskAdder.AddTaskCalls())
 func (mock *TaskAdderMock) AddTaskCalls() []struct {
 	Ctx context.Context
 	Db  store.Execer
@@ -93,19 +94,19 @@ var _ TaskLister = &TaskListerMock{}
 
 // TaskListerMock is a mock implementation of TaskLister.
 //
-// 	func TestSomethingThatUsesTaskLister(t *testing.T) {
+//	func TestSomethingThatUsesTaskLister(t *testing.T) {
 //
-// 		// make and configure a mocked TaskLister
-// 		mockedTaskLister := &TaskListerMock{
-// 			ListTasksFunc: func(ctx context.Context, db store.Queryer, id entity.UserID) (entity.Tasks, error) {
-// 				panic("mock out the ListTasks method")
-// 			},
-// 		}
+//		// make and configure a mocked TaskLister
+//		mockedTaskLister := &TaskListerMock{
+//			ListTasksFunc: func(ctx context.Context, db store.Queryer, id entity.UserID) (entity.Tasks, error) {
+//				panic("mock out the ListTasks method")
+//			},
+//		}
 //
-// 		// use mockedTaskLister in code that requires TaskLister
-// 		// and then make assertions.
+//		// use mockedTaskLister in code that requires TaskLister
+//		// and then make assertions.
 //
-// 	}
+//	}
 type TaskListerMock struct {
 	// ListTasksFunc mocks the ListTasks method.
 	ListTasksFunc func(ctx context.Context, db store.Queryer, id entity.UserID) (entity.Tasks, error)
@@ -147,7 +148,8 @@ func (mock *TaskListerMock) ListTasks(ctx context.Context, db store.Queryer, id 
 
 // ListTasksCalls gets all the calls that were made to ListTasks.
 // Check the length with:
-//     len(mockedTaskLister.ListTasksCalls())
+//
+//	len(mockedTaskLister.ListTasksCalls())
 func (mock *TaskListerMock) ListTasksCalls() []struct {
 	Ctx context.Context
 	Db  store.Queryer
@@ -170,19 +172,19 @@ var _ UserRegister = &UserRegisterMock{}
 
 // UserRegisterMock is a mock implementation of UserRegister.
 //
-// 	func TestSomethingThatUsesUserRegister(t *testing.T) {
+//	func TestSomethingThatUsesUserRegister(t *testing.T) {
 //
-// 		// make and configure a mocked UserRegister
-// 		mockedUserRegister := &UserRegisterMock{
-// 			RegisterUserFunc: func(ctx context.Context, db store.Execer, u *entity.User) error {
-// 				panic("mock out the RegisterUser method")
-// 			},
-// 		}
+//		// make and configure a mocked UserRegister
+//		mockedUserRegister := &UserRegisterMock{
+//			RegisterUserFunc: func(ctx context.Context, db store.Execer, u *entity.User) error {
+//				panic("mock out the RegisterUser method")
+//			},
+//		}
 //
-// 		// use mockedUserRegister in code that requires UserRegister
-// 		// and then make assertions.
+//		// use mockedUserRegister in code that requires UserRegister
+//		// and then make assertions.
 //
-// 	}
+//	}
 type UserRegisterMock struct {
 	// RegisterUserFunc mocks the RegisterUser method.
 	RegisterUserFunc func(ctx context.Context, db store.Execer, u *entity.User) error
@@ -224,7 +226,8 @@ func (mock *UserRegisterMock) RegisterUser(ctx context.Context, db store.Execer,
 
 // RegisterUserCalls gets all the calls that were made to RegisterUser.
 // Check the length with:
-//     len(mockedUserRegister.RegisterUserCalls())
+//
+//	len(mockedUserRegister.RegisterUserCalls())
 func (mock *UserRegisterMock) RegisterUserCalls() []struct {
 	Ctx context.Context
 	Db  store.Execer
@@ -247,19 +250,19 @@ var _ UserGetter = &UserGetterMock{}
 
 // UserGetterMock is a mock implementation of UserGetter.
 //
-// 	func TestSomethingThatUsesUserGetter(t *testing.T) {
+//	func TestSomethingThatUsesUserGetter(t *testing.T) {
 //
-// 		// make and configure a mocked UserGetter
-// 		mockedUserGetter := &UserGetterMock{
-// 			GetUserFunc: func(ctx context.Context, db store.Queryer, name string) (*entity.User, error) {
-// 				panic("mock out the GetUser method")
-// 			},
-// 		}
+//		// make and configure a mocked UserGetter
+//		mockedUserGetter := &UserGetterMock{
+//			GetUserFunc: func(ctx context.Context, db store.Queryer, name string) (*entity.User, error) {
+//				panic("mock out the GetUser method")
+//			},
+//		}
 //
-// 		// use mockedUserGetter in code that requires UserGetter
-// 		// and then make assertions.
+//		// use mockedUserGetter in code that requires UserGetter
+//		// and then make assertions.
 //
-// 	}
+//	}
 type UserGetterMock struct {
 	// GetUserFunc mocks the GetUser method.
 	GetUserFunc func(ctx context.Context, db store.Queryer, name string) (*entity.User, error)
@@ -301,7 +304,8 @@ func (mock *UserGetterMock) GetUser(ctx context.Context, db store.Queryer, name 
 
 // GetUserCalls gets all the calls that were made to GetUser.
 // Check the length with:
-//     len(mockedUserGetter.GetUserCalls())
+//
+//	len(mockedUserGetter.GetUserCalls())
 func (mock *UserGetterMock) GetUserCalls() []struct {
 	Ctx  context.Context
 	Db   store.Queryer
@@ -324,19 +328,19 @@ var _ TokenGenerator = &TokenGeneratorMock{}
 
 // TokenGeneratorMock is a mock implementation of TokenGenerator.
 //
-// 	func TestSomethingThatUsesTokenGenerator(t *testing.T) {
+//	func TestSomethingThatUsesTokenGenerator(t *testing.T) {
 //
-// 		// make and configure a mocked TokenGenerator
-// 		mockedTokenGenerator := &TokenGeneratorMock{
-// 			GenerateTokenFunc: func(ctx context.Context, u entity.User) ([]byte, error) {
-// 				panic("mock out the GenerateToken method")
-// 			},
-// 		}
+//		// make and configure a mocked TokenGenerator
+//		mockedTokenGenerator := &TokenGeneratorMock{
+//			GenerateTokenFunc: func(ctx context.Context, u entity.User) ([]byte, error) {
+//				panic("mock out the GenerateToken method")
+//			},
+//		}
 //
-// 		// use mockedTokenGenerator in code that requires TokenGenerator
-// 		// and then make assertions.
+//		// use mockedTokenGenerator in code that requires TokenGenerator
+//		// and then make assertions.
 //
-// 	}
+//	}
 type TokenGeneratorMock struct {
 	// GenerateTokenFunc mocks the GenerateToken method.
 	GenerateTokenFunc func(ctx context.Context, u entity.User) ([]byte, error)
@@ -374,7 +378,8 @@ func (mock *TokenGeneratorMock) GenerateToken(ctx context.Context, u entity.User
 
 // GenerateTokenCalls gets all the calls that were made to GenerateToken.
 // Check the length with:
-//     len(mockedTokenGenerator.GenerateTokenCalls())
+//
+//	len(mockedTokenGenerator.GenerateTokenCalls())
 func (mock *TokenGeneratorMock) GenerateTokenCalls() []struct {
 	Ctx context.Context
 	U   entity.User

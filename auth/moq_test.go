@@ -15,22 +15,22 @@ var _ Store = &StoreMock{}
 
 // StoreMock is a mock implementation of Store.
 //
-// 	func TestSomethingThatUsesStore(t *testing.T) {
+//	func TestSomethingThatUsesStore(t *testing.T) {
 //
-// 		// make and configure a mocked Store
-// 		mockedStore := &StoreMock{
-// 			LoadFunc: func(ctx context.Context, key string) (entity.UserID, error) {
-// 				panic("mock out the Load method")
-// 			},
-// 			SaveFunc: func(ctx context.Context, key string, userID entity.UserID) error {
-// 				panic("mock out the Save method")
-// 			},
-// 		}
+//		// make and configure a mocked Store
+//		mockedStore := &StoreMock{
+//			LoadFunc: func(ctx context.Context, key string) (entity.UserID, error) {
+//				panic("mock out the Load method")
+//			},
+//			SaveFunc: func(ctx context.Context, key string, userID entity.UserID) error {
+//				panic("mock out the Save method")
+//			},
+//		}
 //
-// 		// use mockedStore in code that requires Store
-// 		// and then make assertions.
+//		// use mockedStore in code that requires Store
+//		// and then make assertions.
 //
-// 	}
+//	}
 type StoreMock struct {
 	// LoadFunc mocks the Load method.
 	LoadFunc func(ctx context.Context, key string) (entity.UserID, error)
@@ -81,7 +81,8 @@ func (mock *StoreMock) Load(ctx context.Context, key string) (entity.UserID, err
 
 // LoadCalls gets all the calls that were made to Load.
 // Check the length with:
-//     len(mockedStore.LoadCalls())
+//
+//	len(mockedStore.LoadCalls())
 func (mock *StoreMock) LoadCalls() []struct {
 	Ctx context.Context
 	Key string
@@ -118,7 +119,8 @@ func (mock *StoreMock) Save(ctx context.Context, key string, userID entity.UserI
 
 // SaveCalls gets all the calls that were made to Save.
 // Check the length with:
-//     len(mockedStore.SaveCalls())
+//
+//	len(mockedStore.SaveCalls())
 func (mock *StoreMock) SaveCalls() []struct {
 	Ctx    context.Context
 	Key    string

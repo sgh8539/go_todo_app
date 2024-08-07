@@ -75,4 +75,43 @@ JWT정보를 context.Context타입값에 넣기
 
 ### handler 패키지 구현
 - handler/login.go
+  - handler/login_test.go
 - go:generate -> make generate
+### service 패키지 구현
+테스트를 고려해서 *store.Repository 타입과 *auth.JWTer을 직접 참조하지 않고
+코드 20.29
+처럼 UserGetter 인터페이스나 TokenGenerator 인터페이스를 정의한다
+- service/login.go
+- handler -> service호출 구조
+- entity/user.go
+
+### store 패키지 구현
+영구화된 *entity.User 타입값을 가져오는 구현이다
+. github.com/
+jmoiron/sqlx 패키지에 정의된 *sqlx.DB.GetContext 메서드를 사용하면 쿼리 실행
+결과가 설정된 구조체를 쉽게 얻을 수 있다.
+- store/user.go - getUser
+
+## 86 미들웨어 패턴을 사용한 인증 기능
+- handler/middleware.go
+  - context.Context에 저장
+
+## 87 요청에 포함된 은증과 권한 정보를 사용한 엔드포인트 보호
+로그인 후에 HTTP 요청에 인증 및 권한 정보가 부여되도록 구현했다 /tasks 엔드포인트를 수정해서 인증 및 권한 정보를 사용하게 만든다.
+
+• GET /tasks와 POST /tasks 엔드포인트는 인증을 완료한 사용자만 이용할 수 있다
+• POST /tasks 엔드포인트로 새로운 태스크를 저장할 때 태스크와 함께 사용자 정보도 저장한다
+• GET /tasks 엔드포인트를 실행하면 자신이 등록한 태스크만 열람할 수 있다
+- _tools/mysql/schema.sqt > migration 수행
+- entitv/task.qo > user id 추가
+- mux.go > 미들웨어추가
+- service/add_task.go > 사용자 아이디 추가
+- store/task.go > 사용자 ID를 이용해 태스크를 검색
+
+
+### 테스트 작성
+prepareTasks 함수는 prepareUser 함
+수를 사용해 태스크를 등록한다 prepareTasks 함수에서는 사전 데이터로 세 개의 태
+스크를 등록하지만 그중 하나는 사용자 ID가 달라서 테스트에서는 두 개의 태스크만
+반환된다
+
