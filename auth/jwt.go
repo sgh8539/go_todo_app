@@ -54,6 +54,7 @@ func NewJWTer(s Store, c clock.Clocker) (*JWTer, error) {
 	return j, nil
 }
 
+// 바이트 배열을 읽어서 키값으려 변환해준다.
 func parse(rawKey []byte) (jwk.Key, error) {
 	key, err := jwk.ParseKey(rawKey, jwk.WithPEM(true))
 	if err != nil {
@@ -62,6 +63,7 @@ func parse(rawKey []byte) (jwk.Key, error) {
 	return key, nil
 }
 
+// 토큰을 생성한다.
 func (j *JWTer) GenerateToken(ctx context.Context, u entity.User) ([]byte, error) {
 	tok, err := jwt.NewBuilder().
 		JwtID(uuid.New().String()).

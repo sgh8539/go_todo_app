@@ -6,6 +6,7 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.openssl_legacy.bin 
     pkgs.gnumake
     pkgs.go
     # pkgs.python311

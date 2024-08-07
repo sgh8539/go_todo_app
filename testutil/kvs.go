@@ -14,6 +14,7 @@ func OpenRedisForTest(t *testing.T) *redis.Client {
 
 	host := "127.0.0.1"
 	port := 36379
+	//github action에서 성공할 수 있도록 변경한다. 포트를
 	if _, defined := os.LookupEnv("CI"); defined {
 		// https://docs.github.com/ja/actions/using-containerized-services/creating-redis-service-containers#configuring-the-runner-job
 		port = 6379

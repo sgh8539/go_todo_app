@@ -40,6 +40,7 @@ func TestKVS_Load(t *testing.T) {
 		uid := entity.UserID(1234)
 		ctx := context.Background()
 		cli.Set(ctx, key, int64(uid), 30*time.Minute)
+		// 주기적으로 레디스에 저장한 데이터를 정리한다.
 		t.Cleanup(func() {
 			cli.Del(ctx, key)
 		})
