@@ -26,6 +26,8 @@ type KVS struct {
 
 func (k *KVS) Save(ctx context.Context, key string, userID entity.UserID) error {
 	id := int64(userID)
+	// key : accesstoken id jti
+	// value: user id
 	return k.Cli.Set(ctx, key, id, 30*time.Minute).Err()
 }
 
